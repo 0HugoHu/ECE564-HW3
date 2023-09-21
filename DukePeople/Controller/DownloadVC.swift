@@ -98,13 +98,17 @@ class DownloadVC: UIViewController, URLSessionDownloadDelegate {
     
     @IBAction func downloadReplaceBtn(_ sender: Any) {
         replaceFlag = true
-        if download(website: url, auth: authString) {}
+        if download(website: url, auth: authString) {
+            if self.dataModel.save() {}
+        }
     }
     
     
     @IBAction func downloadUpdateBtn(_ sender: Any) {
         replaceFlag = false
-        if download(website: url, auth: authString) {}
+        if download(website: url, auth: authString) {
+            if self.dataModel.save() {}
+        }
     }
     
     
@@ -141,6 +145,7 @@ class DownloadVC: UIViewController, URLSessionDownloadDelegate {
             replaceDUIDFlag = true
             if download(website: url, auth: authString) {
                 self.statusLabel.text = "Download \(String(describing: DUIDInput)) Complete!"
+                if self.dataModel.save() {}
             }
         } else {
             self.errorMessage = "Invalid DUID!"

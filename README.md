@@ -1,6 +1,6 @@
 #  ECE564 HW3 - Communications
 
-> **For the first time running the app, it will be slow to load the launch screen, because I used RealityKit pakage.**
+> **~For the first time running the app, it will be slow to load the launch screen, because I used RealityKit pakage.~ I have disabled those animation for a better launch speed.**
 
 > **Please ignore some run-time warnings, they are from the BackgroundRemoval dependency. There's no errors or warning at the build-time.**
 
