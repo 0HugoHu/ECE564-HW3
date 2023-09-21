@@ -28,15 +28,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
         // Delay for a few seconds and then transition to the default main view
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) { // Change 3 to the desired delay in seconds
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
             self.transitionToDefaultMainView()
         }
     }
     
     // Transition to the default main view
     func transitionToDefaultMainView() {
-        let mainViewController = ViewController()
-        window?.rootViewController = mainViewController
+//        let mainViewController = DownloadVC()
+//        window?.rootViewController = mainViewController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let mainViewController = storyboard.instantiateViewController(withIdentifier: "DownloadVC") as? DownloadVC {
+            window?.rootViewController = mainViewController
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -24,3 +24,7 @@ let buttonBackgroundColorFocused = UIColor(red: 110/255.0, green: 139/255.0, blu
 let textColor = Color(red: 251/255.0, green: 230/255.0, blue: 114/255.0, opacity: 1)
 let blurColor = Color(red: 109/255.0, green: 185/255.0, blue: 132/255.0, opacity: 1)
 
+let redColorDownloadVC = UIColor(hex: 0xf0dedb).cgColor
+let blueColorDownloadVC = UIColor(hex: 0xd9e9f4).cgColor
+let blackColorDownloadVC = UIColor(hex: 0x0f2d3d)
+

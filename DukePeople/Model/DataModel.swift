@@ -11,6 +11,7 @@ import UIKit
 // Duke Person Data Model
 struct DukePerson : CustomStringConvertible, Codable {
     let DUID: Int
+    var netid: String?
     var fName: String
     var lName: String
     var email: String
@@ -19,6 +20,10 @@ struct DukePerson : CustomStringConvertible, Codable {
     var role: Role
     var program: String
     var plan: String
+    var hobby: String?
+    var languages: [String]?
+    var movie: String?
+    var team: String?
     var picture: String
     
     
@@ -33,10 +38,23 @@ struct DukePerson : CustomStringConvertible, Codable {
         default:
             pronoun = ("They", "Them")
         }
-        if role == .Student {
-            return "\(fName) \(lName) is a Student. \(pronoun.subject) is in the \(program) program working towards a \(plan) degree. You can reach \(pronoun.object.lowercased()) at \(email)."
+        
+        var additionalInfo = ""
+            
+        additionalInfo += " \(pronoun.subject) loves \(hobby ?? "??") as a hobby. "
+        
+        additionalInfo += " \(pronoun.subject) enjoys watching \(movie ?? "??") as a favorite movie. "
+        
+        if !languages!.isEmpty {
+            additionalInfo += " \(pronoun.subject) is proficient in \(languages!.joined(separator: ", "))."
         } else {
-            return "\(fName) \(lName) is a \(role). \(pronoun.subject) is from \(from). You can reach \(pronoun.object.lowercased()) at \(email)."
+            additionalInfo += " \(pronoun.subject) is proficient in ?? languages."
+        }
+        
+        if role == .Student {
+            return "\(fName) \(lName) is a Student. \(pronoun.subject) is in the \(program) program working towards a \(plan) degree. \(additionalInfo) You can reach \(pronoun.object.lowercased()) at \(email)."
+        } else {
+            return "\(fName) \(lName) is a \(role). \(pronoun.subject) is from \(from). \(additionalInfo) You can reach \(pronoun.object.lowercased()) at \(email)."
         }
     }
     
@@ -48,9 +66,14 @@ struct DukePerson : CustomStringConvertible, Codable {
         self.from = from
         self.gender = gender
         self.role = role
-        self.program = ""
-        self.plan = ""
-        self.picture = ""
+        self.program = "??"
+        self.plan = "??"
+        self.picture = "??"
+        self.hobby = "??"
+        self.languages = [String]()
+        self.movie = "??"
+        self.team = "??"
+        self.netid = "??"
     }
     
     init(DUID: Int, fName: String, lName: String, email: String, from: String, gender: Gender, role: Role, program: String, plan: String, picture: String) {
@@ -64,6 +87,29 @@ struct DukePerson : CustomStringConvertible, Codable {
         self.program = program
         self.plan = plan
         self.picture = picture
+        self.hobby = "??"
+        self.languages = [String]()
+        self.movie = "??"
+        self.team = "??"
+        self.netid = "??"
+    }
+    
+    init(DUID: Int, netid: String, fName: String, lName: String, email: String, from: String, gender: Gender, role: Role, program: String, plan: String, picture: String, hobby: String, languages: [String], movie: String, team: String) {
+        self.DUID = DUID
+        self.fName = fName
+        self.lName = lName
+        self.email = email
+        self.from = from
+        self.gender = gender
+        self.role = role
+        self.program = program
+        self.plan = plan
+        self.picture = picture
+        self.hobby = hobby
+        self.languages = languages
+        self.movie = movie
+        self.team = team
+        self.netid = netid
     }
 }
 
@@ -79,10 +125,11 @@ class DukePersonDict {
         self.people = [Int : DukePerson]()
         self.url = url
         if !load(url) {
-            // TODO: Handle error
-        }
-        if !save() {
-            // TODO: Handle error
+            print("Unable to load data from \(url)")
+        } else {
+            if !save() {
+                print("Unable to save data to \(url)")
+            }
         }
     }
     
@@ -221,7 +268,6 @@ class DukePersonDict {
                 self.people = try decoder.decode([Int: DukePerson].self, from: data)
                 return true
             } catch {
-                // TODO: Handle error
                 print("Error loading data from JSON file: \(error)")
                 return false
             }
@@ -230,19 +276,34 @@ class DukePersonDict {
             if let assetData = NSDataAsset(name: "PeopleJSON")?.data {
                 do {
                     let decoder = JSONDecoder()
-                    let dukePeopleArray = try decoder.decode([DukePerson].self, from: assetData)
+                    var dukePeopleArray = try decoder.decode([DukePerson].self, from: assetData)
+                    for i in 0..<dukePeopleArray.count {
+                        if dukePeopleArray[i].hobby == nil {
+                            dukePeopleArray[i].hobby = "??"
+                        }
+                        if dukePeopleArray[i].languages == nil {
+                            dukePeopleArray[i].languages = [String]()
+                        }
+                        if dukePeopleArray[i].team == nil {
+                            dukePeopleArray[i].team = "??"
+                        }
+                        if dukePeopleArray[i].movie == nil {
+                            dukePeopleArray[i].movie = "??"
+                        }
+                        if dukePeopleArray[i].netid == nil {
+                            dukePeopleArray[i].netid = "??"
+                        }
+                    }
                     self.people = [:]
                     for dukePerson in dukePeopleArray {
                         self.people[dukePerson.DUID] = dukePerson
                     }
                     return true
                 } catch {
-                    // TODO: Handle error
                     print("Error loading data from asset: \(error)")
                     return false
                 }
             } else {
-                // TODO: Handle error
                 print("Asset file 'ece564class.json' not found.")
                 return false
             }
@@ -261,7 +322,6 @@ class DukePersonDict {
             try data.write(to: self.url)
             return true
         } catch {
-            // TODO: Handle error
             print("Error saving data: \(error)")
             return false
         }

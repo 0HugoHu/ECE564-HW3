@@ -1,4 +1,4 @@
-#  ECE564 HW2 - Persistent Storage
+#  ECE564 HW3 - Communications
 
 > **For the first time running the app, it will be slow to load the launch screen, because I used RealityKit pakage.**
 
@@ -7,53 +7,84 @@
 
 ## Extra Functionality
 
-### 1.A LaunchScreen
-- Very delicated and animated launch screen powered by ```RealityKit```
-- The 3D animation shows all kinds of marks representing different disciplines at the Duke University, while emphasizing the **DUKE** name
+### 1.Nice UI on main
+- Very delicated and well-arranged main screen
 
-|![](Assets/hw2_launchscreen1.png)|![](Assets/hw2_launchscreen2.png)|![](Assets/hw2_launchscreen3.png)|![](Assets/hw2_launchscreen4.png)|
-|---|---|---|---|
+|![](Assets/hw3_main1.png)|![](Assets/hw3_main2.png)|![](Assets/hw3_main3.png)|
+|---|---|---|
 
-### 2.Any new functions you want to add
-- Applied the **Image Background Removal** to the profile picture
-- Added **Gradient Transition** to the background and **Glass Blur Effect** to the Image and TextField
-- Created new **Protocols** to the DukePersonVC to pass the error message back, and to the customized GradientImageView for button action's callback
+|![](Assets/hw3_main4.png)|![](Assets/hw3_main5.png)|![](Assets/hw3_main6.png)|
+|---|---|---|
 
-### 3.Unique enhancements to the DukePersonView
-- Very awesome UI with **Glass Blur Effect** Textfield and **Gradient Transition** background
-- Added the person's name to be more prominent
+### 2.Additional features on main - Help button
+- Add three help buttons with pop-up help menus
+
+### 3.Support for additional REST endpoints - entriesNetidDelete and entriesNetidGet
+- Support DELETE API for removal of my profile on the server
+- Support GET API for specific person using the input DUID
 
 
-|![](Assets/hw2_person1.png)|![](Assets/hw2_person2.png)|![](Assets/hw2_person4.png)|![](Assets/hw2_person3.png)|
-|---|---|---|---|
 
 <br />
 
 ## Code Reference
 
-#### 1.The Launch Screen was modified from the code of [@aheze](https://github.com/aheze/RealityKitLaunchScreen) on GitHub
-The original and modified code are all in ```DukePeople/LaunchScreen``` folder.
+#### 1.The Pop-up view was inspired by [@Mijick](https://github.com/Mijick/PopupView) and [@exyte](https://github.com/exyte/PopupView)
 
-#### 2.The Image Backgroud Removal used [BackgroundRemoval](https://github.com/Ezaldeen99/BackgroundRemoval) dependency on GitHub
-Use of the Removal model:
+But both of these dependencies worked not as expected, so I referenced the code on StackOverflow
 ```swift
-let image = UIImage(named: "child")
-outputImage.image = BackgroundRemoval.init().removeBackground(image: image!)
+extension UIViewController {
+
+func showToast(message : String, font: UIFont) {
+
+    let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+    toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+    toastLabel.textColor = UIColor.white
+    toastLabel.font = font
+    toastLabel.textAlignment = .center;
+    toastLabel.text = message
+    toastLabel.alpha = 1.0
+    toastLabel.layer.cornerRadius = 10;
+    toastLabel.clipsToBounds  =  true
+    self.view.addSubview(toastLabel)
+    UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+         toastLabel.alpha = 0.0
+    }, completion: {(isCompleted) in
+        toastLabel.removeFromSuperview()
+    })
+} }
+
 ```
-
-#### 3. The Material Background (aka. the Glass Blur Effect)
-Read materials from:
-- [UIBlurEffectStyles](https://ikyle.me/blog/2022/uiblureffectstyle)
-- [SwiftUI Gradient Blur](https://github.com/unitedadityaa/SwiftUIGradientBlur)
-- [Material - A background material type](https://developer.apple.com/documentation/swiftui/material)
-
-#### 4. The DukePersonView's idea is from [iOS 17 Preview](https://www.apple.com/ios/ios-17-preview/): the new phone call interface
-~Though someone may **accidentally** be the same with my ideas (who knows)~
 
 
 <br />
 
 ## Usage
+
+### Main Page Help
+
+```text
+-- Initial Upload --
+Upload your data to the server from the build-in JSON file
+
+-- Updated Upload --
+Update your remote profile with your local changes
+
+-- Download Replace --
+Clear your local data model, and fetch the entire records from the server
+
+-- Download Update --
+Merge your local data model with remote data
+
+-- Replace One Only --
+Replace your local specific one's profile with remote one
+
+-- Load from Disk --
+Discard all data in memory, and sysnc with local sandbox's data
+
+-- Delete Myself --
+Delete your profile from the server
+```
 
 ### Input Instruction
 

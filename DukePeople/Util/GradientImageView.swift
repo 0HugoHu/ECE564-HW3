@@ -89,6 +89,7 @@ public struct GradientImageView : View {
                     Text(description)
                         .padding()
                         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8))
+                        .font(.system(size: 14))
                 }
                 .padding()
                 .offset(x: 0, y: 365)

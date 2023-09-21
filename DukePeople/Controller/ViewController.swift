@@ -38,10 +38,6 @@ class ViewController: UIViewController, DukePersonVCDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let sandboxURL: URL = getDocumentsDirectory()
-        let JSONName = "dukePersonDict.json"
-        dataModel = DukePersonDict(url: sandboxURL.appendingPathComponent(JSONName))
-        
         // Fixed layout parameters
         let marginLeft = 16, marginRight = 16, marginTop = 32, marginBaseTop = 64
         let width = 390
@@ -182,7 +178,7 @@ class ViewController: UIViewController, DukePersonVCDelegate {
      Handle button press events
      */
     @objc func buttonPressed(_ sender: AnyObject){
-        var outputViewInfo = outputView.text
+        var outputViewInfo = ""
         var buttonPressed = ""
         var enteredDUID : Int = 0
         var enteredPerson : DukePerson = DukePerson(DUID: 0, fName: "", lName: "", email: "", from: "", gender: .Unknown, role: .Unknown)
@@ -232,28 +228,28 @@ class ViewController: UIViewController, DukePersonVCDelegate {
         let currentDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss"
-        outputViewInfo! += dateFormatter.string(from: currentDate) + "\n"
+        outputViewInfo += dateFormatter.string(from: currentDate) + "\n"
         
         // Data model operations
         if validInput {
             switch buttonPressed {
             case "Add":
                 if dataModel.add(enteredPerson) {
-                    outputViewInfo! += "Added person: \(enteredDUID) succeeded.\n"
+                    outputViewInfo += "Added person: \(enteredDUID) succeeded.\n"
                 } else {
                     validInput = false
                     errorString = "Add failed, DUID \(enteredDUID) already exists!"
                 }
             case "Update":
                 if dataModel.update(enteredPerson) {
-                    outputViewInfo! += "Updated person: \(enteredDUID) succeeded.\n"
+                    outputViewInfo += "Updated person: \(enteredDUID) succeeded.\n"
                 } else {
                     validInput = false
                     errorString = "Update failed, DUID \(enteredDUID) not found. Added person instead."
                 }
             case "Delete":
                 if dataModel.delete(enteredDUID) {
-                    outputViewInfo! += "Deleted person: \(enteredDUID) succeeded.\n"
+                    outputViewInfo += "Deleted person: \(enteredDUID) succeeded.\n"
                 } else {
                     validInput = false
                     errorString = "Delete failed, DUID \(enteredDUID) not found!"
@@ -265,7 +261,7 @@ class ViewController: UIViewController, DukePersonVCDelegate {
                         validInput = false
                         errorString = "Find failed, DUID \(enteredDUID) not found!"
                     } else {
-                        outputViewInfo! += person!.description + "\n"
+                        outputViewInfo += person!.description + "\n"
                         // Push a new view
                         pushNewViewController(person!.fName, person!.lName, person!.description, person!.picture)
                     }
@@ -276,7 +272,7 @@ class ViewController: UIViewController, DukePersonVCDelegate {
                         errorString = "Find failed, No person matches the name \(enteredPerson.lName), \(enteredPerson.fName)!"
                     } else {
                         for person in people! {
-                            outputViewInfo! += person.description + "\n"
+                            outputViewInfo += person.description + "\n"
                         }
                         if people!.count == 1 {
                             // Push a new view
@@ -290,18 +286,18 @@ class ViewController: UIViewController, DukePersonVCDelegate {
                     validInput = false
                     errorString = "List failed, no people in the database!"
                 } else {
-                    outputViewInfo! += text
+                    outputViewInfo += text
                 }
             case "Help":
-                outputViewInfo! += helpText
+                outputViewInfo += helpText
             default:
-                outputViewInfo! += "Unknown error! + \n"
+                outputViewInfo += "Unknown error! + \n"
             }
         }
         
         // Handle error message
         if !validInput {
-            outputViewInfo! += errorString! + "\n"
+            outputViewInfo += errorString! + "\n"
             statusLabel.textColor = statusLabelColorRed
             statusLabel.text = "Operation failed!"
         } else {
@@ -317,7 +313,7 @@ class ViewController: UIViewController, DukePersonVCDelegate {
         
         inputFieldDUID.text = ""
         inputFieldParam.text = ""
-        outputView.text = outputViewInfo! + "\n"
+        outputView.text = outputViewInfo + "\n"
         
         // Scroll to the bottom of the output view
         scrollToButton()

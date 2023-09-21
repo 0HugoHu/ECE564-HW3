@@ -60,6 +60,16 @@
 		C2C34C072AB0006500E7B201 /* GetPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C34C062AB0006400E7B201 /* GetPath.swift */; };
 		C2C34C0D2AB0303B00E7B201 /* GradientImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C34C0C2AB0303B00E7B201 /* GradientImageView.swift */; };
 		C2C34C102AB0FEFA00E7B201 /* BackgroundRemoval in Frameworks */ = {isa = PBXBuildFile; productRef = C2C34C0F2AB0FEFA00E7B201 /* BackgroundRemoval */; };
+		C2C830DF2ABA638500066BFF /* DownloadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C830DE2ABA638500066BFF /* DownloadVC.swift */; };
+		C2C831012ABB44B500066BFF /* GetImageBase64.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C831002ABB44B500066BFF /* GetImageBase64.swift */; };
+		C2C831032ABBBF3B00066BFF /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C831022ABBBF3B00066BFF /* GradientView.swift */; };
+		C2C831152ABBDC1C00066BFF /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C831142ABBDC1C00066BFF /* ToastView.swift */; };
+		C2C831282ABBEE4200066BFF /* hw3_main1.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C831222ABBEE4200066BFF /* hw3_main1.png */; };
+		C2C831292ABBEE4200066BFF /* hw3_main5.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C831232ABBEE4200066BFF /* hw3_main5.png */; };
+		C2C8312A2ABBEE4200066BFF /* hw3_main6.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C831242ABBEE4200066BFF /* hw3_main6.png */; };
+		C2C8312B2ABBEE4200066BFF /* hw3_main2.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C831252ABBEE4200066BFF /* hw3_main2.png */; };
+		C2C8312C2ABBEE4200066BFF /* hw3_main4.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C831262ABBEE4200066BFF /* hw3_main4.png */; };
+		C2C8312D2ABBEE4200066BFF /* hw3_main3.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C831272ABBEE4200066BFF /* hw3_main3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +127,16 @@
 		C2B363212AAFED5E007D4A6F /* DukePersonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DukePersonView.xib; sourceTree = "<group>"; };
 		C2C34C062AB0006400E7B201 /* GetPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPath.swift; sourceTree = "<group>"; };
 		C2C34C0C2AB0303B00E7B201 /* GradientImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientImageView.swift; sourceTree = "<group>"; };
+		C2C830DE2ABA638500066BFF /* DownloadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadVC.swift; sourceTree = "<group>"; };
+		C2C831002ABB44B500066BFF /* GetImageBase64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageBase64.swift; sourceTree = "<group>"; };
+		C2C831022ABBBF3B00066BFF /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		C2C831142ABBDC1C00066BFF /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		C2C831222ABBEE4200066BFF /* hw3_main1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hw3_main1.png; sourceTree = "<group>"; };
+		C2C831232ABBEE4200066BFF /* hw3_main5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hw3_main5.png; sourceTree = "<group>"; };
+		C2C831242ABBEE4200066BFF /* hw3_main6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hw3_main6.png; sourceTree = "<group>"; };
+		C2C831252ABBEE4200066BFF /* hw3_main2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hw3_main2.png; sourceTree = "<group>"; };
+		C2C831262ABBEE4200066BFF /* hw3_main4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hw3_main4.png; sourceTree = "<group>"; };
+		C2C831272ABBEE4200066BFF /* hw3_main3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hw3_main3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +222,12 @@
 		C297BE302AA9800E00AE0592 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				C2C831222ABBEE4200066BFF /* hw3_main1.png */,
+				C2C831252ABBEE4200066BFF /* hw3_main2.png */,
+				C2C831272ABBEE4200066BFF /* hw3_main3.png */,
+				C2C831262ABBEE4200066BFF /* hw3_main4.png */,
+				C2C831232ABBEE4200066BFF /* hw3_main5.png */,
+				C2C831242ABBEE4200066BFF /* hw3_main6.png */,
 				C20B0B712AB26362001B52A7 /* hw2_person1.png */,
 				C20B0B6D2AB26131001B52A7 /* hw2_person2.png */,
 				C20B0B6E2AB26131001B52A7 /* hw2_person4.png */,
@@ -240,6 +266,7 @@
 			children = (
 				C2939EE42AA132CB00B6F9B1 /* ViewController.swift */,
 				C2B3631D2AAFD651007D4A6F /* DukePersonVC.swift */,
+				C2C830DE2ABA638500066BFF /* DownloadVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -259,6 +286,9 @@
 			children = (
 				C2C34C062AB0006400E7B201 /* GetPath.swift */,
 				C2C34C0C2AB0303B00E7B201 /* GradientImageView.swift */,
+				C2C831002ABB44B500066BFF /* GetImageBase64.swift */,
+				C2C831022ABBBF3B00066BFF /* GradientView.swift */,
+				C2C831142ABBDC1C00066BFF /* ToastView.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -294,7 +324,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					C2939EDC2AA132CB00B6F9B1 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -328,18 +358,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				C297BE852AA98B6C00AE0592 /* hw1_testcase1.png in Resources */,
+				C2C8312D2ABBEE4200066BFF /* hw3_main3.png in Resources */,
 				C20B0B702AB26131001B52A7 /* hw2_person4.png in Resources */,
 				C297BE7F2AA98B6C00AE0592 /* hw1_testcase19.png in Resources */,
 				C297BE762AA98B6C00AE0592 /* hw1_testcase4.png in Resources */,
 				C297BE732AA98B6C00AE0592 /* hw1_testcase13.png in Resources */,
+				C2C831282ABBEE4200066BFF /* hw3_main1.png in Resources */,
 				C297BE782AA98B6C00AE0592 /* hw1_testcase8.png in Resources */,
 				C297BE722AA98B6C00AE0592 /* hw1_testcase2.png in Resources */,
+				C2C8312B2ABBEE4200066BFF /* hw3_main2.png in Resources */,
 				C297BE872AA98B7900AE0592 /* hw1_testcase21.png in Resources */,
 				C297BE752AA98B6C00AE0592 /* hw1_testcase20.png in Resources */,
+				C2C8312A2ABBEE4200066BFF /* hw3_main6.png in Resources */,
 				C2B363222AAFED5E007D4A6F /* DukePersonView.xib in Resources */,
+				C2C831292ABBEE4200066BFF /* hw3_main5.png in Resources */,
 				C20B0B672AB25F44001B52A7 /* hw2_launchscreen2.png in Resources */,
 				C297BE7A2AA98B6C00AE0592 /* hw1_testcase15.png in Resources */,
 				C297BE772AA98B6C00AE0592 /* hw1_testcase5.png in Resources */,
+				C2C8312C2ABBEE4200066BFF /* hw3_main4.png in Resources */,
 				C297BE742AA98B6C00AE0592 /* hw1_testcase10.png in Resources */,
 				C20B0B722AB26362001B52A7 /* hw2_person1.png in Resources */,
 				C297BE7E2AA98B6C00AE0592 /* hw1_testcase9.png in Resources */,
@@ -371,20 +407,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2C830DF2ABA638500066BFF /* DownloadVC.swift in Sources */,
 				C2939EE52AA132CB00B6F9B1 /* ViewController.swift in Sources */,
 				C20B0B582AB24F07001B52A7 /* LaunchViewController.swift in Sources */,
 				C20B0B502AB24EB7001B52A7 /* ContentView.swift in Sources */,
 				C20B0B542AB24EDE001B52A7 /* LaunchModels.swift in Sources */,
 				C2939EF82AA78A6300B6F9B1 /* DataStructures.swift in Sources */,
+				C2C831152ABBDC1C00066BFF /* ToastView.swift in Sources */,
 				C2939EF62AA78A4900B6F9B1 /* DataModel.swift in Sources */,
 				C20B0B5E2AB24F37001B52A7 /* Utilities.swift in Sources */,
 				C2C34C0D2AB0303B00E7B201 /* GradientImageView.swift in Sources */,
 				C20B0B5A2AB24F17001B52A7 /* LaunchViewModel.swift in Sources */,
 				C297BE2C2AA96C4F00AE0592 /* Colors.swift in Sources */,
+				C2C831032ABBBF3B00066BFF /* GradientView.swift in Sources */,
 				C2C34C072AB0006500E7B201 /* GetPath.swift in Sources */,
 				C20B0B562AB24EF2001B52A7 /* LaunchVC+Scene.swift in Sources */,
 				C2939EE12AA132CB00B6F9B1 /* AppDelegate.swift in Sources */,
 				C20B0B522AB24EC9001B52A7 /* LaunchConstants.swift in Sources */,
+				C2C831012ABB44B500066BFF /* GetImageBase64.swift in Sources */,
 				C20B0B5C2AB24F28001B52A7 /* RealityKitLaunchScreenApp.swift in Sources */,
 				C297BE2A2AA96BF000AE0592 /* Strings.swift in Sources */,
 				C2B3631F2AAFD651007D4A6F /* DukePersonVC.swift in Sources */,
@@ -450,6 +490,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -510,6 +551,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
