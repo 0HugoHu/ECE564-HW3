@@ -23,6 +23,10 @@
 - Support DELETE API for removal of my profile on the server
 - Support GET API for specific person using the input DUID
 
+### 4. Can handle non-Enum values
+- Support like "Non-binary" value for gender
+- Support like "Do not want to say" value for role
+
 
 
 <br />
